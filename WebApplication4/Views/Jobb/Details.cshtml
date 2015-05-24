@@ -1,0 +1,94 @@
+﻿@model WebApplication4.Models.Jobb
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Jobb</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Titel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Titel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ort)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ort)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Datum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Datum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pris)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pris)
+        </dd>
+    </dl>
+</div>
+<table class="table">
+<tr>
+    <th>
+        Användare
+    </th>
+    <th>
+        Kommentar
+    </th>
+</tr>
+    @foreach (var comment in Model.Comments)
+    {       
+            <tr>
+                <td>
+                   @comment.User.UserName
+                </td>
+                <td>
+                    @comment.Comment
+                </td>
+            </tr>    
+    }
+</table>  
+<table class="table">
+    <tr>
+        <th >
+            Användare
+        </th>
+        <th >
+            Bud
+        </th>
+    </tr>
+    @foreach (var bud in Model.Bud)
+    {
+        <tr>
+            <td>
+                @bud.User.UserName
+            </td>
+            <td>
+                @bud.But
+            </td>
+        </tr>
+    }
+</table> 
+
+
+<img src="@Model.Image"/>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

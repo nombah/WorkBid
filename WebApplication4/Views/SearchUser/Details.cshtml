@@ -1,0 +1,21 @@
+﻿@model WebApplication4.ViewModels.JobbViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<table class="table">
+@foreach (var item in Model.Users)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(ModelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Information)
+        </td>
+        <td>
+           @Html.DisplayFor(modelItem => item.Comment)
+        </td>
+    </tr>
+}
+    </table>

@@ -1,0 +1,59 @@
+﻿@model WebApplication4.ViewModels.JobbViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Jobb</h2>
+
+<p>@Model.User.Role
+@if (Model.User.Role == "Employer")
+{
+    @Html.ActionLink("Create New", "Create")
+}
+    @using (Html.BeginForm())
+
+    {
+    <p>
+        Sök efter jobb: @Html.TextBox("SearchString")<br />
+        <input type="submit" value="Filter" />
+    </p>
+       
+    }
+<br />
+<p>lägg ett @Html.ActionLink("Bud", "create", "but")</p>
+<p>lägg en @Html.ActionLink("Kommentar", "create", "Comment")</p>
+<table class="table">
+
+    <tr>
+      <th>Jobb</th>
+      <th>Stad</th>
+      <th>Datum</th>
+      <th>Arbetsgivare</th>
+      <th>Maxpris</th>
+  </tr>
+@foreach (var item in Model.Jobbs)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Titel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ort)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Datum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pris)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) 
+        </td>
+    </tr>
+}
+
+</table>

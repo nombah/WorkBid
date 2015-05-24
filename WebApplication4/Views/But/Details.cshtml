@@ -1,0 +1,42 @@
+﻿@model WebApplication4.Models.ButModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ButModel</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.jobb.Titel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.jobb.Titel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.But)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.But)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.butModelId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

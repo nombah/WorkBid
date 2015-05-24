@@ -1,0 +1,44 @@
+﻿@model WebApplication4.ViewModels.JobbViewModel
+@{
+    ViewBag.Title = "Index";
+}
+@using (Html.BeginForm())
+{ 
+    <br />
+<p>
+    Sök efter User: @Html.TextBox("SearchUser")<br />
+    <input type="submit" value="Sök" />
+</p>
+}
+<th>
+
+</th>
+<table class ="table">
+    <tr>
+        <th>
+            AnvändarNamn
+        </th>
+        <th>
+            Information
+        </th>
+        <th>  
+            telefonNummer        
+        </th>
+    </tr>
+    @foreach (var item in Model.Users)
+    {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(ModelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Information)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhonenNumber)
+            </td>
+        </tr>
+    }
+</table>
+
